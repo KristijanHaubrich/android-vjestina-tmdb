@@ -95,6 +95,5 @@ fun UserScoreProgressBarr(
 @Preview
 @Composable
 private fun CrewItemPreview() {
-    val crew1 = CrewItemViewState("Robert Downey JR.", "actor")
-    CrewItem(crewItemViewState = crew1)
+
 }

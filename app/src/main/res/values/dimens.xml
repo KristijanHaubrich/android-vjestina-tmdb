@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+//ActorCard
+    //ActorCardActorImage
+    <dimen name="heightActorImage">100dp</dimen>
+    <dimen name="widthActorImage">100dp</dimen>
+    <dimen name="paddingActorImage">5dp</dimen>
+    //ActorCardTextName
+    <dimen name="actorCardTextNamePadding">5dp</dimen>
+    //ActorCardTextCharacter
+    <dimen name="actorCardTextCharacterPaddingTop">5dp</dimen>
+    <dimen name="actorCardTextCharacterPaddingStart">5dp</dimen>
+    <dimen name="actorCardTextCharacterPaddingBottom">10dp</dimen>
+
+//CrewItem
+    //CrewItemTextName
+    <dimen name="crewItemTextNamePaddingTop">5dp</dimen>
+    <dimen name="crewItemTextNamePaddingStart">5dp</dimen>
+    <dimen name="crewItemTextNamePaddingBottom">0dp</dimen>
+    //CrewItemTextJob
+    <dimen name="crewItemTextJobPaddingTop">0dp</dimen>
+    <dimen name="crewItemTextJobPaddingStart">5dp</dimen>
+    <dimen name="crewItemTextJobPaddingBottom">5dp</dimen>
+
+//MovieCard
+    //MovieCardFavoritesImage
+    <dimen name="movieCardFavoritesIconHeight">5dp</dimen>
+    <dimen name="movieCardFavoritesIconWidth">5dp</dimen>
+    <dimen name="movieCardFavoritesIconPadding">10dp</dimen>
+
+//MovieCategoryLabel
+    //Text
+    <dimen name="movieCategoryLabelTextPaddingTop">4.dp</dimen>
+    <dimen name="movieCategoryLabelTextPaddingBottom">4.dp</dimen>
+    //divider
+    <dimen name="movieCategoryLabelDividerThickness">3.dp</dimen>
+
+</resources>

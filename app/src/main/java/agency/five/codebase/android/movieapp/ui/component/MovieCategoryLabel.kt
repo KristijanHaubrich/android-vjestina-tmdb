@@ -1,9 +1,11 @@
 package agency.five.codebase.android.movieapp.ui.component
 
 import agency.five.codebase.android.movieapp.R
+import agency.five.codebase.android.movieapp.ui.theme.spacing
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,73 +27,22 @@ data class MovieCategoryLabelViewState(
 )
 
 sealed class MovieCategoryLabelTextViewState{
-    object stringText: MovieCategoryLabelTextViewState()
-    object stringResourceText: MovieCategoryLabelTextViewState()
+    data class Text(val text: String): MovieCategoryLabelTextViewState()
+    data class TextRes(@StringRes val textRes: Int): MovieCategoryLabelTextViewState()
 }
 
 @Composable
 fun MovieCategoryLabel(
     movieCardViewState: MovieCategoryLabelViewState,
-    directText:String = "",
-    @StringRes strRes:Int = 0,
+    onItemClick: (MovieCategoryLabelTextViewState) -> Unit,
+    modifier: Modifier,
 ){
-
-        when (movieCardViewState.categoryText) {
-            MovieCategoryLabelTextViewState.stringText -> stringLabel(
-                directText = directText,
-                isSelected = movieCardViewState.isSelected
-            )
-            MovieCategoryLabelTextViewState.stringResourceText -> stringResLabel(
-                strRes = strRes,
-                isSelected = movieCardViewState.isSelected
-            )
-        }
-
+    
 }
 
-@Composable
-fun stringLabel(directText:String, isSelected: Boolean){
-
-    val fontFamily = FontFamily(
-        Font(R.font.titilliumweb_bold, FontWeight.Bold),
-        Font(R.font.titilliumweb_black, FontWeight.Black)
-    )
-
-    val fontWeight = when(isSelected){
-        true -> FontWeight.Black
-        false -> FontWeight.Bold
-    }
-
-    val fontColor = when(isSelected){
-        true -> Color.Black
-        false -> Color.Gray
-    }
-
-    Column(
-        Modifier.padding(5.dp).width(100.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Text(
-            modifier = Modifier.padding(top = 4.dp, bottom = 4.dp),
-            text = directText,
-            fontFamily = fontFamily,
-            fontWeight = fontWeight,
-            color = fontColor,
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
-
-        if(isSelected){
-            Divider( thickness = 3.dp, color = Color.Black)
-        }
-    }
-
-
-}
 
 @Composable
-fun stringResLabel(@StringRes strRes:Int, isSelected: Boolean){
+fun stringResLabel(@StringRes strRes:Int, isSelected: Boolean, modifier: Modifier){
 
     val fontFamily = FontFamily(
         Font(R.font.titilliumweb_bold, FontWeight.Bold),
@@ -109,12 +60,12 @@ fun stringResLabel(@StringRes strRes:Int, isSelected: Boolean){
     }
 
     Column(
-        Modifier.padding(5.dp).width(100.dp),
+        modifier = modifier,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Text(
-            modifier = Modifier.padding(top = 4.dp, bottom = 4.dp),
+            modifier = Modifier.padding(top = R.dimen.movieCategoryLabelTextPaddingTop.dp, bottom = R.dimen.movieCategoryLabelTextPaddingBottom.dp),
             text = stringResource(id = strRes),
             fontFamily = fontFamily,
             fontWeight = fontWeight,
@@ -124,7 +75,46 @@ fun stringResLabel(@StringRes strRes:Int, isSelected: Boolean){
         )
 
         if(isSelected){
-            Divider( thickness = 3.dp, color = Color.Black)
+            Divider( thickness = R.dimen.movieCategoryLabelDividerThickness.dp, color = Color.Black)
+        }
+    }
+}
+
+@Composable
+fun stringLabel(text:String, isSelected: Boolean, modifier: Modifier){
+
+    val fontFamily = FontFamily(
+        Font(R.font.titilliumweb_bold, FontWeight.Bold),
+        Font(R.font.titilliumweb_black, FontWeight.Black)
+    )
+
+    val fontWeight = when(isSelected){
+        true -> FontWeight.Black
+        false -> FontWeight.Bold
+    }
+
+    val fontColor = when(isSelected){
+        true -> Color.Black
+        false -> Color.Gray
+    }
+
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(
+            modifier = Modifier.padding(top = R.dimen.movieCategoryLabelTextPaddingTop.dp, bottom = R.dimen.movieCategoryLabelTextPaddingBottom.dp),
+            text = text,
+            fontFamily = fontFamily,
+            fontWeight = fontWeight,
+            color = fontColor,
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp
+        )
+
+        if(isSelected){
+            Divider( thickness = R.dimen.movieCategoryLabelDividerThickness.dp, color = Color.Black)
         }
     }
 }
@@ -132,12 +122,6 @@ fun stringResLabel(@StringRes strRes:Int, isSelected: Boolean){
 @Preview
 @Composable
 private fun MovieCategoryPreview() {
-    val Label1 = MovieCategoryLabelViewState(1,true,MovieCategoryLabelTextViewState.stringText)
-    val Label2 = MovieCategoryLabelViewState(1,false,MovieCategoryLabelTextViewState.stringResourceText)
 
-    Row(){
-        MovieCategoryLabel(movieCardViewState = Label1, directText = "Movies")
-        MovieCategoryLabel(movieCardViewState = Label2, strRes = R.string.movie)
-    }
 }
 

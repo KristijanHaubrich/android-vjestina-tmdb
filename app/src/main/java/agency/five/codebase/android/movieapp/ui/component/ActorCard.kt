@@ -20,6 +20,10 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import agency.five.codebase.android.movieapp.R
+import agency.five.codebase.android.movieapp.mock.MoviesMock
+import agency.five.codebase.android.movieapp.ui.theme.spacing
+import androidx.compose.material.MaterialTheme
+import androidx.compose.ui.unit.Dp
 
 
 data class ActorCardViewState(
@@ -30,13 +34,13 @@ data class ActorCardViewState(
 
 @Composable
 fun ActorCard(
+    modifier: Modifier,
     actorCardViewState: ActorCardViewState,
 ) {
     Card(
-        modifier = Modifier.width(110.dp).padding(8.dp),
-        shape = RoundedCornerShape(15.dp),
+        modifier = modifier,
+        shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
-
         ) {
 
         val fontFamily = FontFamily(
@@ -60,20 +64,19 @@ fun ActorCard(
             CircularProgressIndicator()
         }
 
-        Column(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.fillMaxSize()) {
             Image(
                 modifier = Modifier
-                    .width(100.dp)
-                    .height(100.dp)
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
+                    .height(R.dimen.heightActorImage.dp)
+                    .padding(R.dimen.paddingActorImage.dp)
                 ,
                 painter = painter,
                 contentDescription = "actor_picture",
             )
 
             Text(
-                modifier = Modifier.padding(5.dp),
+                modifier = Modifier.padding(R.dimen.actorCardTextNamePadding.dp),
                 text = actorCardViewState.name,
                 textAlign = TextAlign.Left,
                 fontFamily = fontFamily,
@@ -81,7 +84,7 @@ fun ActorCard(
             )
 
             Text(
-                modifier = Modifier.padding(top = 5.dp, start = 5.dp, bottom = 10.dp),
+                modifier = Modifier.padding(start = R.dimen.actorCardTextCharacterPaddingStart.dp, top = R.dimen.actorCardTextCharacterPaddingTop.dp, bottom = R.dimen.actorCardTextCharacterPaddingBottom.dp),
                 text = actorCardViewState.character,
                 textAlign = TextAlign.Left,
                 fontFamily = fontFamily,
@@ -95,6 +98,11 @@ fun ActorCard(
 @Preview
 @Composable
 private fun ActorCardPreview() {
-    val actor1 = ActorCardViewState("https://media1.popsugar-assets.com/files/thumbor/msjEO8oq7PWud7pFv_Cm6GR6E-U/0x1:2771x2772/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2020/03/30/878/n/1922398/eb11f12e5e825104ca01c1.02079643_/i/Robert-Downey-Jr.jpg","Robert Downey JR.", "Tony Stark/IronMan")
-    ActorCard(actorCardViewState = actor1)
+    val mockActorCardViewState = MoviesMock.getActor().let { actor ->
+        ActorCardViewState(
+            imageUrl = actor.imageUrl.orEmpty(),
+            name = actor.name,
+            character = actor.character,
+        )
+    }
 }

@@ -1,8 +1,11 @@
 package agency.five.codebase.android.movieapp.ui.component
 
 import agency.five.codebase.android.movieapp.R
+import agency.five.codebase.android.movieapp.mock.MoviesMock
+import agency.five.codebase.android.movieapp.ui.theme.spacing
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -22,10 +25,11 @@ data class CrewItemViewState(
 @Composable
 fun CrewItem(
     crewItemViewState: CrewItemViewState,
+    modifier: Modifier,
 ) {
 
     Column(
-        modifier = Modifier.padding(5.dp)
+        modifier = modifier
     ) {
         val fontFamily = FontFamily(
             Font(R.font.titilliumweb_bold, FontWeight.Bold),
@@ -33,7 +37,7 @@ fun CrewItem(
         )
 
         Text(
-            modifier = Modifier.padding(top = 5.dp, start = 5.dp, bottom = 0.dp),
+            modifier = Modifier.padding(top = R.dimen.crewItemTextNamePaddingTop.dp, start = R.dimen.crewItemTextNamePaddingStart.dp, bottom = R.dimen.crewItemTextNamePaddingBottom.dp),
             text = crewItemViewState.name,
             textAlign = TextAlign.Left,
             fontFamily = fontFamily,
@@ -42,7 +46,7 @@ fun CrewItem(
         )
 
         Text(
-            modifier = Modifier.padding(top = 0.dp, start = 5.dp, bottom = 5.dp),
+            modifier = Modifier.padding(top = R.dimen.crewItemTextJobPaddingTop.dp, start = R.dimen.crewItemTextJobPaddingStart.dp, bottom = R.dimen.crewItemTextJobPaddingBottom.dp),
             text = crewItemViewState.job,
             textAlign = TextAlign.Left,
             fontFamily = fontFamily,
@@ -56,6 +60,5 @@ fun CrewItem(
 @Preview
 @Composable
 private fun CrewItemPreview() {
-    val crew1 = CrewItemViewState("Robert Downey JR.", "actor")
-    CrewItem(crewItemViewState = crew1)
+
 }
