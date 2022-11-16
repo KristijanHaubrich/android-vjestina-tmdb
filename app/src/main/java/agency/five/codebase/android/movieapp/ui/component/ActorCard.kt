@@ -2,7 +2,6 @@ package agency.five.codebase.android.movieapp.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
@@ -21,9 +20,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import agency.five.codebase.android.movieapp.R
 import agency.five.codebase.android.movieapp.mock.MoviesMock
-import agency.five.codebase.android.movieapp.ui.theme.spacing
 import androidx.compose.material.MaterialTheme
-import androidx.compose.ui.unit.Dp
 
 
 data class ActorCardViewState(
@@ -40,7 +37,6 @@ fun ActorCard(
     Card(
         modifier = modifier,
         shape = MaterialTheme.shapes.medium,
-        elevation = 5.dp,
         ) {
 
         val fontFamily = FontFamily(

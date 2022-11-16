@@ -3,10 +3,10 @@ package agency.five.codebase.android.movieapp.ui.component
 import agency.five.codebase.android.movieapp.R
 import agency.five.codebase.android.movieapp.mock.MoviesMock
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,7 +23,7 @@ data class MovieCardViewState(
     val isFavorite: Boolean = false,
 )
 
-@OptIn(ExperimentalMaterialApi::class)
+
 @Composable
 fun MovieCard(
     modifier: Modifier = Modifier,
@@ -35,10 +35,8 @@ fun MovieCard(
     Card(
         modifier = modifier,
         shape = MaterialTheme.shapes.medium,
-        onClick = onCardClick,
-        ) {
-
-        Box(modifier = Modifier.fillMaxSize()) {
+    ) {
+        Box(modifier = Modifier.fillMaxSize().clickable { onCardClick }, ) {
 
             val bannerPainter = rememberAsyncImagePainter(
                 model = ImageRequest.Builder(LocalContext.current)
