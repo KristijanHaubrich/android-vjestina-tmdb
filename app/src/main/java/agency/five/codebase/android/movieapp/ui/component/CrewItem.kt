@@ -26,7 +26,7 @@ data class CrewItemViewState(
 @Composable
 fun CrewItem(
     crewItemViewState: CrewItemViewState,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
 
     Column(
