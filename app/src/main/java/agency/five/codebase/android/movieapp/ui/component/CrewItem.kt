@@ -4,6 +4,7 @@ import agency.five.codebase.android.movieapp.R
 import agency.five.codebase.android.movieapp.mock.MoviesMock
 import agency.five.codebase.android.movieapp.ui.theme.spacing
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -60,5 +61,11 @@ fun CrewItem(
 @Preview
 @Composable
 private fun CrewItemPreview() {
+    val mockCrewman = MoviesMock.getCrewman()
+    CrewItem(
+        crewItemViewState = CrewItemViewState(name = mockCrewman.name, job = mockCrewman.job),
+        modifier = Modifier.fillMaxSize()
+    )
+
 
 }

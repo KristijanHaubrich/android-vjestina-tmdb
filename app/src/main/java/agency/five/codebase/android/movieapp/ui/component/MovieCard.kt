@@ -1,6 +1,7 @@
 package agency.five.codebase.android.movieapp.ui.component
 
 import agency.five.codebase.android.movieapp.R
+import agency.five.codebase.android.movieapp.mock.MoviesMock
 import agency.five.codebase.android.movieapp.ui.theme.spacing
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -78,7 +79,7 @@ fun MovieCard(
         }
 
     }
-}
+
 
 @Composable
 fun FavoriteButton(
@@ -101,6 +102,21 @@ fun FavoriteButton(
 @Preview
 @Composable
 private fun MovieCardPreview() {
+    val movieMock = MoviesMock.getMoviesList()[0]
+
+    movieMock?.let { movie ->
+        val movieState = MovieCardViewState(
+            imageUrl = movie.imageUrl!!,
+            isFavorite = movie.isFavorite,
+        )
+
+        MovieCard(movieCardViewState = movieState, onCardClick = {  }) {
+
+        }
+    }
+
+
+
 
 
 }
