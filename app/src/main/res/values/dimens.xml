@@ -32,9 +32,5 @@
 
 //MovieCategoryLabel
     //Text
-    <dimen name="movieCategoryLabelTextPaddingTop">4.dp</dimen>
-    <dimen name="movieCategoryLabelTextPaddingBottom">4.dp</dimen>
-    //divider
-    <dimen name="movieCategoryLabelDividerThickness">3.dp</dimen>
-
+    <dimen name="favorite_button_size">5dp</dimen>
 </resources>

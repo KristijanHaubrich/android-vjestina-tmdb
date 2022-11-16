@@ -105,4 +105,14 @@ private fun ActorCardPreview() {
             character = actor.character,
         )
     }
+
+    ActorCard(
+        actorCardViewState = mockActorCardViewState,
+        modifier = Modifier
+            .padding(20.dp)
+            .size(
+                120.dp,
+                180.dp,
+            ),
+    )
 }
