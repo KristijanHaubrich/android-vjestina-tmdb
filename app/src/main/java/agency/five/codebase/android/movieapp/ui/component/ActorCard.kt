@@ -46,7 +46,7 @@ fun ActorCard(
 
         val painter = rememberAsyncImagePainter(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(actorCardViewState?.imageUrl)
+                .data(actorCardViewState.imageUrl)
                 .crossfade(true)
                 .placeholder(R.drawable.ic_actor_image_placeholder)
                 .crossfade(1000)

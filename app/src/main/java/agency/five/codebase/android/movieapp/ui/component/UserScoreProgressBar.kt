@@ -35,7 +35,7 @@ data class UserScoreProgressBarViewState(
 )
 
 @Composable
-fun UserScoreProgressBarr(
+fun UserScoreProgressBar(
     userScoreProgressBarViewState: UserScoreProgressBarViewState
 ){
     var animationPlayed by remember {
@@ -56,7 +56,9 @@ fun UserScoreProgressBarr(
 
     Box(
         contentAlignment =  Alignment.Center,
-        modifier = Modifier.size(userScoreProgressBarViewState.radius*2).padding(8.dp),
+        modifier = Modifier
+            .size(userScoreProgressBarViewState.radius * 2)
+            .padding(8.dp),
     ){
         Canvas(
             modifier = Modifier.size(userScoreProgressBarViewState.radius * 2f),
@@ -94,6 +96,7 @@ fun UserScoreProgressBarr(
 
 @Preview
 @Composable
-private fun CrewItemPreview() {
-
+private fun UserScoreProgressBarPreview() {
+    val progressBarState = UserScoreProgressBarViewState(rating = 5.6f)
+    UserScoreProgressBar(userScoreProgressBarViewState = progressBarState)
 }

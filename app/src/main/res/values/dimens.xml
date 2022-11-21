@@ -31,6 +31,20 @@
     <dimen name="movieCardFavoritesIconPadding">10dp</dimen>
 
 //MovieCategoryLabel
-    //Text
-    <dimen name="favorite_button_size">5dp</dimen>
+    //favoriteButton
+    <dimen name="favorite_button_size">40dp</dimen>
+    <dimen name="favorite_button_padding">5dp</dimen>
+
+//FavoritesScreen
+    <dimen name="favoritesScreenTitlePadding">10dp</dimen>
+    <dimen name="favoritesScreenSpaceBetweenCards">12dp</dimen>
+    <dimen name="favoritesScreenGridPadding">10dp</dimen>
+
+//MovieDetailsScreen
+    <dimen name="movieDetailsBannerHeight">275dp</dimen>
+    <dimen name="movieDetailsTitleSize">16sp</dimen>
+    <dimen name="movieDetailsOverviewTitlePadding">5dp</dimen>
+
+//UserScoreProgressBar
+    <dimen name="userScoreProgressBarRadius">35dp</dimen>
 </resources>
