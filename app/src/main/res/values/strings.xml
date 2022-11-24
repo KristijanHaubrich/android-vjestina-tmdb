@@ -4,4 +4,16 @@
     <string name="favoritesScreenTitle">Favorites</string>
     <string name="user_score">User score</string>
     <string name="overview">Overview</string>
+    <string name="topBilledCast">Top Billed Cast</string>
+
+    //movieCategorys
+    <string name="streaming">Streaming</string>
+    <string name="on_tv">On TV</string>
+    <string name="for_rent">For Rent</string>
+    <string name="in_theatres">In Theatres</string>
+    <string name="TV">TV</string>
+    <string name="movies">Movies</string>
+    <string name="today">Today</string>
+    <string name="this_week">This Week</string>
+
 </resources>

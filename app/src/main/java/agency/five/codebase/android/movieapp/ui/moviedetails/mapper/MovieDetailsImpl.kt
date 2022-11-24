@@ -1,10 +1,6 @@
 package agency.five.codebase.android.movieapp.ui.moviedetails.mapper
 
-import agency.five.codebase.android.movieapp.model.Actor
-import agency.five.codebase.android.movieapp.model.Crewman
 import agency.five.codebase.android.movieapp.model.MovieDetails
-import agency.five.codebase.android.movieapp.ui.favorites.FavoritesMovieViewState
-import agency.five.codebase.android.movieapp.ui.favorites.FavoritesViewState
 import agency.five.codebase.android.movieapp.ui.moviedetails.MovieDetailsViewState
 
 class MovieDetailsImpl: movieDetailsMapper {

@@ -12,6 +12,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.Text
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
@@ -24,11 +27,10 @@ data class CrewItemViewState(
 @Composable
 fun CrewItem(
     crewItemViewState: CrewItemViewState,
-    modifier: Modifier = Modifier,
 ) {
 
     Column(
-        modifier = modifier
+        modifier = Modifier.padding(dimensionResource(id = R.dimen.crewItemPadding))
     ) {
         val fontFamily = FontFamily(
             Font(R.font.titilliumweb_bold, FontWeight.Bold),
@@ -36,22 +38,22 @@ fun CrewItem(
         )
 
         Text(
-            modifier = Modifier.padding(top = R.dimen.crewItemTextNamePaddingTop.dp, start = R.dimen.crewItemTextNamePaddingStart.dp, bottom = R.dimen.crewItemTextNamePaddingBottom.dp),
             text = crewItemViewState.name,
-            textAlign = TextAlign.Left,
             fontFamily = fontFamily,
+            textAlign = TextAlign.Left,
             fontWeight = FontWeight.Bold,
-            fontSize = 16.sp
-        )
+            color = Color.Black,
+            fontSize = 20.sp,
+
+            )
 
         Text(
-            modifier = Modifier.padding(top = R.dimen.crewItemTextJobPaddingTop.dp, start = R.dimen.crewItemTextJobPaddingStart.dp, bottom = R.dimen.crewItemTextJobPaddingBottom.dp),
             text = crewItemViewState.job,
-            textAlign = TextAlign.Left,
             fontFamily = fontFamily,
+            textAlign = TextAlign.Left,
             fontWeight = FontWeight.Light,
-            fontSize = 16.sp
-
+            color = Color.Black,
+            fontSize = 15.sp,
         )
     }
 }
@@ -62,7 +64,6 @@ private fun CrewItemPreview() {
     val mockCrewman = MoviesMock.getCrewman()
     CrewItem(
         crewItemViewState = CrewItemViewState(name = mockCrewman.name, job = mockCrewman.job),
-        modifier = Modifier.fillMaxSize()
     )
 
 

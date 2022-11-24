@@ -43,7 +43,7 @@ fun UserScoreProgressBar(
     }
 
     val currentRating = animateFloatAsState(
-        targetValue = if (animationPlayed) userScoreProgressBarViewState.rating else 0f,
+        targetValue = if (animationPlayed) userScoreProgressBarViewState.rating*10 else 0f,
         animationSpec = tween(
             durationMillis = userScoreProgressBarViewState.animDurationInMilis,
             delayMillis = userScoreProgressBarViewState.animDelayInMilis

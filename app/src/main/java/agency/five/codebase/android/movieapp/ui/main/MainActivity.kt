@@ -1,8 +1,5 @@
 package agency.five.codebase.android.movieapp.ui.main
 
-import agency.five.codebase.android.movieapp.ui.component.CrewItem
-import agency.five.codebase.android.movieapp.ui.component.CrewItemViewState
-import agency.five.codebase.android.movieapp.ui.favorites.FavoritesScreen
 import agency.five.codebase.android.movieapp.ui.moviedetails.MovieDetailsScreen
 import agency.five.codebase.android.movieapp.ui.theme.MovieAppTheme
 import android.os.Bundle
@@ -17,9 +14,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MovieAppTheme{
-                //MovieDetailsScreen()
+                MovieDetailsScreen()
                 //FavoritesScreen()
-                CrewItem(crewItemViewState = CrewItemViewState("Kiki","dost dobar"))
             }
         }
     }
