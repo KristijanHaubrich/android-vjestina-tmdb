@@ -1,16 +1,12 @@
 package agency.five.codebase.android.movieapp.ui.main
 
-import agency.five.codebase.android.movieapp.R
-import agency.five.codebase.android.movieapp.ui.component.*
+import agency.five.codebase.android.movieapp.ui.home.HomeScreen
+import agency.five.codebase.android.movieapp.ui.moviedetails.MovieDetailsScreen
 import agency.five.codebase.android.movieapp.ui.theme.MovieAppTheme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 class MainActivity : ComponentActivity() {
 
@@ -19,6 +15,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MovieAppTheme{
+                //MovieDetailsScreen()
+                //FavoritesScreen()
+                HomeScreen()
             }
         }
     }

@@ -15,14 +15,8 @@
     <dimen name="actorCardTextCharacterPaddingBottom">10dp</dimen>
 
 //CrewItem
-    //CrewItemTextName
-    <dimen name="crewItemTextNamePaddingTop">5dp</dimen>
-    <dimen name="crewItemTextNamePaddingStart">5dp</dimen>
-    <dimen name="crewItemTextNamePaddingBottom">0dp</dimen>
-    //CrewItemTextJob
-    <dimen name="crewItemTextJobPaddingTop">0dp</dimen>
-    <dimen name="crewItemTextJobPaddingStart">5dp</dimen>
-    <dimen name="crewItemTextJobPaddingBottom">5dp</dimen>
+    <dimen name="crewItemPadding">5dp</dimen>
+
 
 //MovieCard
     //MovieCardFavoritesImage
@@ -31,6 +25,26 @@
     <dimen name="movieCardFavoritesIconPadding">10dp</dimen>
 
 //MovieCategoryLabel
-    //Text
-    <dimen name="favorite_button_size">5dp</dimen>
+    //favoriteButton
+    <dimen name="underscore_thickness">3dp</dimen>
+    <dimen name="favorite_button_size">40dp</dimen>
+    <dimen name="favorite_button_padding">5dp</dimen>
+
+//FavoritesScreen
+    <dimen name="favoritesScreenTitlePadding">10dp</dimen>
+    <dimen name="favoritesScreenSpaceBetweenCards">12dp</dimen>
+    <dimen name="favoritesScreenGridPadding">10dp</dimen>
+
+//MovieDetailsScreen
+    <dimen name="movieDetailsBannerHeight">275dp</dimen>
+    <dimen name="movieDetailsTitleSize">16sp</dimen>
+    <dimen name="movieDetailsOverviewTitlePadding">5dp</dimen>
+    <dimen name="movieDetailsCastTitlePadding">5dp</dimen>
+    <dimen name="movieDetailsCastTopTitlePadding">25dp</dimen>
+
+    //actor card
+    <dimen name="cast_member_card_width">140dp</dimen>
+    <dimen name="cast_member_card_height">200dp</dimen>
+//UserScoreProgressBar
+    <dimen name="userScoreProgressBarRadius">35dp</dimen>
 </resources>

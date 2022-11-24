@@ -59,9 +59,9 @@ fun MovieCard(
                 contentDescription = "banner_picture",
             )
 
-            FavoriteButton(isFavorite = movieCardViewState.isFavorite, onClick = { onLikeButtonClick })
+            FavoritesButton(isFavorite = movieCardViewState.isFavorite, onClick = { onLikeButtonClick })
 
-            }
+        }
 
 
         }

@@ -3,7 +3,6 @@ package agency.five.codebase.android.movieapp.ui.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,12 +14,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImagePainter
-import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import agency.five.codebase.android.movieapp.R
 import agency.five.codebase.android.movieapp.mock.MoviesMock
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
 
 
 data class ActorCardViewState(
@@ -44,47 +48,54 @@ fun ActorCard(
             Font(R.font.titilliumweb_light, FontWeight.Light)
         )
 
-        val painter = rememberAsyncImagePainter(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(actorCardViewState?.imageUrl)
-                .crossfade(true)
-                .placeholder(R.drawable.ic_actor_image_placeholder)
-                .crossfade(1000)
-                .error(R.drawable.ic_actor_image_placeholder)
-                .build(),
-            contentScale = ContentScale.Crop,
+        Column(
+            modifier = modifier,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-            )
 
-        if (painter.state is AsyncImagePainter.State.Loading){
-            CircularProgressIndicator()
-        }
+                val bannerPainter = rememberAsyncImagePainter(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(actorCardViewState.imageUrl)
+                        .crossfade(true)
+                        .placeholder(R.drawable.ic_actor_image_placeholder)
+                        .crossfade(1000)
+                        .error(R.drawable.ic_actor_image_placeholder)
+                        .build(),
+                    contentScale = ContentScale.Crop,
+                    
+                )
 
-        Column(modifier = Modifier.fillMaxSize()) {
-            Image(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(R.dimen.heightActorImage.dp)
-                    .padding(R.dimen.paddingActorImage.dp)
-                ,
-                painter = painter,
-                contentDescription = "actor_picture",
-            )
+                if (bannerPainter.state is AsyncImagePainter.State.Loading) {
+                    CircularProgressIndicator()
+                }
+
+                Image(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    painter = bannerPainter,
+                    contentDescription = "banner_picture",
+                )
+
 
             Text(
-                modifier = Modifier.padding(R.dimen.actorCardTextNamePadding.dp),
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.movieDetailsOverviewTitlePadding)),
                 text = actorCardViewState.name,
-                textAlign = TextAlign.Left,
                 fontFamily = fontFamily,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                color = Color.Black,
+                fontSize = 15.sp,
             )
 
             Text(
-                modifier = Modifier.padding(start = R.dimen.actorCardTextCharacterPaddingStart.dp, top = R.dimen.actorCardTextCharacterPaddingTop.dp, bottom = R.dimen.actorCardTextCharacterPaddingBottom.dp),
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.movieDetailsOverviewTitlePadding)),
                 text = actorCardViewState.character,
-                textAlign = TextAlign.Left,
                 fontFamily = fontFamily,
-                fontWeight = FontWeight.Light
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Light,
+                color = Color.Black,
+                fontSize = 15.sp,
             )
 
         }
