@@ -1,5 +1,6 @@
 package agency.five.codebase.android.movieapp.ui.main
 
+import agency.five.codebase.android.movieapp.ui.home.HomeScreen
 import agency.five.codebase.android.movieapp.ui.moviedetails.MovieDetailsScreen
 import agency.five.codebase.android.movieapp.ui.theme.MovieAppTheme
 import android.os.Bundle
@@ -14,8 +15,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MovieAppTheme{
-                MovieDetailsScreen()
+                //MovieDetailsScreen()
                 //FavoritesScreen()
+                HomeScreen()
             }
         }
     }

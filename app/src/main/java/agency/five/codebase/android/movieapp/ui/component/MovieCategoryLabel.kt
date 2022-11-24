@@ -56,7 +56,7 @@ fun MovieCategoryLabel(
                 .padding(top = MaterialTheme.spacing.extraSmall)
                 .background(if (movieCategoryLabelUiState.isSelected) Color.Black else Color.Transparent)
                 .fillMaxWidth()
-                .height(dimensionResource(id = R.dimen.favorite_button_size))
+                .height(dimensionResource(id = R.dimen.underscore_thickness))
         )
     }
 }
